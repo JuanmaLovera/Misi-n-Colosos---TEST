@@ -142,7 +142,7 @@ function intro(){
   shell(
     `<h1 class="title">Misión<br>Colosos</h1>
      <p class="subtitle">Explorá. Descubrí. Protegé.</p>
-     <div class="hero"><img src="assets/coti.png" alt="Coti"><div class="quest-tag">NUEVA AVENTURA</div></div>
+     <div class="hero"><img src="coti.png" alt="Coti"><div class="quest-tag">NUEVA AVENTURA</div></div>
      <div class="dialogue"><strong>Coti:</strong> Hay Colosos esperando ser encontrados. ¿Venís?</div>`,
     footer("Borrar partida","¡Acepto la misión!","gold")
   );
