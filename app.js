@@ -544,10 +544,17 @@ function buildFeature(){
   const attributes={};
 
   attributes[f.category]=m.officialValue;
-  attributes[f.name]=save.adult;
-  attributes[f.phone]=Number(String(save.phone).replace(/\D/g,"")) || null;
-  attributes[f.terms]="Sí";
-  attributes[f.country]="Paraguay";
+
+// En Árbol de mi escuela el registro oficial lo hace el docente.
+// En las demás categorías se registra el nombre del postulante.
+attributes[f.name] =
+  flow.mission === "school"
+    ? save.adult
+    : save.player;
+
+attributes[f.phone]=Number(String(save.phone).replace(/\D/g,"")) || null;
+attributes[f.terms]="Sí";
+attributes[f.country]="Paraguay";
 
   if(flow.mission==="school"){
     attributes[f.institution]=d.institution||save.school;
