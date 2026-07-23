@@ -83,3 +83,135 @@ button:disabled{cursor:not-allowed;opacity:.6}
 .player-map-label{padding:3px 7px;border-radius:999px;background:#102519;color:white;font-size:11px;font-weight:900;box-shadow:0 2px 7px #0004}
 .map-load-error{height:100%;display:grid;place-items:center;padding:20px;text-align:center;color:#6f1d1b;background:#fff1f1;font-weight:850}
 @media(max-height:720px){.content{align-content:start}.hero{min-height:250px}.hero img{max-height:245px}#treeMap,#treeMap.maplibregl-map{height:350px;min-height:350px}}
+/* =========================================================
+   CARTEL DE INSTALACIÓN PWA
+========================================================= */
+
+.install-banner {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    padding: 18px;
+    background: rgba(5, 20, 12, 0.55);
+    backdrop-filter: blur(4px);
+}
+
+.install-banner[hidden] {
+    display: none;
+}
+
+.install-card {
+    position: relative;
+
+    width: min(100%, 460px);
+    display: grid;
+    grid-template-columns: 62px 1fr;
+    gap: 14px;
+
+    padding: 18px;
+    padding-top: 22px;
+
+    background: #f6f1df;
+    border: 3px solid #163c25;
+    border-radius: 22px;
+
+    box-shadow:
+        0 10px 0 #0d2818,
+        0 18px 35px rgba(0, 0, 0, 0.35);
+
+    animation: installBannerEnter 0.35s ease-out;
+}
+
+.install-icon {
+    width: 62px;
+    height: 62px;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 2px solid #163c25;
+}
+
+.install-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+
+    padding-right: 22px;
+    color: #173522;
+}
+
+.install-text strong {
+    font-size: 18px;
+    line-height: 1.15;
+}
+
+.install-text span {
+    font-size: 13px;
+    line-height: 1.35;
+    opacity: 0.8;
+}
+
+.install-button {
+    grid-column: 1 / -1;
+
+    width: 100%;
+    padding: 13px 18px;
+
+    border: 0;
+    border-radius: 14px;
+
+    background: #247744;
+    color: white;
+
+    font: inherit;
+    font-size: 16px;
+    font-weight: 800;
+
+    cursor: pointer;
+    box-shadow: 0 4px 0 #15532e;
+}
+
+.install-button:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #15532e;
+}
+
+.install-close {
+    position: absolute;
+    top: 7px;
+    right: 9px;
+
+    width: 32px;
+    height: 32px;
+
+    border: 0;
+    background: transparent;
+    color: #173522;
+
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+@keyframes installBannerEnter {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (min-width: 700px) {
+    .install-banner {
+        align-items: center;
+    }
+}
