@@ -907,3 +907,85 @@ function journal(){
 }
 
 render();
+/* =========================================================
+   INSTALACIÓN DE LA PWA
+========================================================= */
+
+let deferredInstallPrompt = null;
+
+const installBanner = document.getElementById("installBanner");
+const installButton = document.getElementById("installButton");
+const dismissInstall = document.getElementById("dismissInstall");
+
+function isAppInstalled() {
+    return (
+        window.matchMedia("(display-mode: standalone)").matches ||
+        window.navigator.standalone === true
+    );
+}
+
+function showInstallBanner() {
+    if (!installBanner || isAppInstalled()) return;
+
+    installBanner.hidden = false;
+}
+
+function hideInstallBanner() {
+    if (!installBanner) return;
+
+    installBanner.hidden = true;
+}
+
+window.addEventListener("beforeinstallprompt", event => {
+    // Evita que Chrome maneje el aviso automáticamente.
+    event.preventDefault();
+
+    // Guarda el evento para usarlo cuando la persona pulse Instalar.
+    deferredInstallPrompt = event;
+
+    showInstallBanner();
+});
+
+installButton?.addEventListener("click", async () => {
+    if (!deferredInstallPrompt) {
+        hideInstallBanner();
+        return;
+    }
+
+    deferredInstallPrompt.prompt();
+
+    try {
+        const choice = await deferredInstallPrompt.userChoice;
+
+        console.log(
+            choice.outcome === "accepted"
+                ? "Instalación aceptada"
+                : "Instalación cancelada"
+        );
+    } catch (error) {
+        console.error("No se pudo abrir el instalador:", error);
+    }
+
+    deferredInstallPrompt = null;
+    hideInstallBanner();
+});
+
+dismissInstall?.addEventListener("click", () => {
+    hideInstallBanner();
+
+    // No vuelve a mostrar el cartel durante esta sesión.
+    sessionStorage.setItem("installBannerDismissed", "true");
+});
+
+window.addEventListener("appinstalled", () => {
+    deferredInstallPrompt = null;
+    hideInstallBanner();
+
+    console.log("Misión Colosos fue instalada.");
+});
+
+window.addEventListener("load", () => {
+    if (isAppInstalled()) {
+        hideInstallBanner();
+    }
+});
