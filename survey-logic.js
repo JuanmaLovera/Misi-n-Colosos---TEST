@@ -1,6 +1,6 @@
 window.SURVEY_LOGIC = {
   "enabled": true,
-  "serviceUrl": "https://services3.arcgis.com/4hHTP4dgE6gy26kB/arcgis/rest/services/survey123_bc6588a1171b4459b527e1dd1736b1d5/FeatureServer",
+  "serviceUrl": "https://services3.arcgis.com/4hHTP4dgE6gy26kB/arcgis/rest/services/survey123_52049e12404f4165883bd0ade809ace0/FeatureServer",
   "layerId": 0,
   "categories": {
     "protected": {
