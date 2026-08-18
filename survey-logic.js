@@ -1,7 +1,7 @@
  window.SURVEY_LOGIC = {
   "enabled": true,
   "portalUrl": "https://www.arcgis.com",
-  "clientId": "l1twiuNs76JtPSrL",
+  "clientId": "I1twiuNs76JtPSrL",
   "redirectUri": "https://juanmalovera.github.io/Misi-n-Colosos---TEST/",
   "serviceUrl": "https://services3.arcgis.com/4hHTP4dgE6gy26kB/arcgis/rest/services/survey123_52049e12404f4165883bd0ade809ace0/FeatureServer",
   "layerId": 0,
