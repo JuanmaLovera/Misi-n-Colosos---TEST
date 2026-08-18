@@ -3,7 +3,7 @@ window.SURVEY_LOGIC = {
   "portalUrl": "https://www.arcgis.com",
   "clientId": "I1twiuNs76JtPSrL",
   "redirectUri": "https://juanmalovera.github.io/Misi-n-Colosos---TEST/",
-  "serviceUrl": "https://services3.arcgis.com/4hHTP4dgE6gy26kB/arcgis/rest/services/survey123_52049e12404f4165883bd0ade809ace0/FeatureServer",
+  "serviceUrl": "https://services3.arcgis.com/4hHTP4dgE6gy26kB/arcgis/rest/services/Colosos_de_la_Tierra_2026_-_Formulario_de_inscripci%C3%B3n_3_vista/FeatureServer",
   "layerId": 0,
   "categories": {
     "protected": {
